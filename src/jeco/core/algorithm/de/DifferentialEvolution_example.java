@@ -16,6 +16,8 @@ public class DifferentialEvolution_example {
 
     private static final Logger logger = Logger.getLogger(DifferentialEvolution_example.class.getName());
 
+    private DifferentialEvolution_example() {}
+
     public static void main(String[] args) {
         // First create the problem
         Rastringin problem = new Rastringin(4);
