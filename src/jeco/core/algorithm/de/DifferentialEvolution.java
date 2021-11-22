@@ -19,7 +19,7 @@ import jeco.core.problem.Variable;
  */
 public class DifferentialEvolution extends Algorithm<Variable<Double>> {
 
-    private static final Logger logger = Logger.getLogger(SimpleGeneticAlgorithm.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(SimpleGeneticAlgorithm.class.getName());
     private static Random rnd;
 
     /////////////////////////////////////////////////////////////////////////
@@ -46,8 +46,8 @@ public class DifferentialEvolution extends Algorithm<Variable<Double>> {
      * Class constructor.
      * @param problem
      */
-    public DifferentialEvolution(Problem<Variable<Double>> problem, Integer maxPopulationSize, Integer maxGenerations, Boolean stopWhenSolved,
-            Double mutationFactor, Double recombinationFactor) {
+    public DifferentialEvolution(Problem<Variable<Double>> problem, Final Integer maxPopulationSize, Final Integer maxGenerations, Final Boolean stopWhenSolved,
+            Final Double mutationFactor, Final Double recombinationFactor) {
         super(problem);
         
         this.maxGenerations = maxGenerations;
@@ -60,17 +60,17 @@ public class DifferentialEvolution extends Algorithm<Variable<Double>> {
         rnd = new Random();
         
         if (np < 4) {
-            logger.severe("Differential Evolution requieres at least 4 individuals !!");
+            LOGGER.severe("Differential Evolution requieres at least 4 individuals !!");
             System.exit(-1);
         }
         
         if ((f<0) || (f>2)) {
-            logger.severe("Differential Evolution requieres mutation factor within range [0,2]");
+            LOGGER.severe("Differential Evolution requieres mutation factor within range [0,2]");
             System.exit(-1);            
         }
         
         if ((gr<0) || (gr>1)) {
-            logger.severe("Differential Evolution requieres recombination factor within range [0,1]");
+            LOGGER.severe("Differential Evolution requieres recombination factor within range [0,1]");
             System.exit(-1);            
         }        
     }
@@ -224,12 +224,12 @@ public class DifferentialEvolution extends Algorithm<Variable<Double>> {
             int percentage = Math.round((currentGeneration * 100) / maxGenerations);
             Double bestObj = population.get(0).getObjectives().get(0);
             if (percentage == nextPercentageReport) {
-                logger.info(percentage + "% performed ..." + " -- Best fitness: " + bestObj);
+                LOGGER.info(percentage + "% performed ..." + " -- Best fitness: " + bestObj);
                 nextPercentageReport += 10;
             }
             if(stopWhenSolved) {
             	if(bestObj<=0) {
-            		logger.info("Optimal solution found in " + currentGeneration + " generations.");
+            		LOGGER.info("Optimal solution found in " + currentGeneration + " generations.");
             		break;
             	}
             }

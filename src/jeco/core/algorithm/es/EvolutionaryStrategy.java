@@ -66,13 +66,13 @@ public class EvolutionaryStrategy<T extends Variable<?>> extends Algorithm<T> {
 
 	@Override
 	public Solutions<T> execute() {
-		int nextPercentageReport = 10;
+		int nextPercentage = 10;
 		while (currentGeneration < maxGenerations) {
 			step();
 			int percentage = Math.round((currentGeneration * 100) / maxGenerations);
-			if (percentage == nextPercentageReport) {
+			if (percentage == nextPercentage) {
 				logger.info(percentage + "% performed ...");
-				nextPercentageReport += 10;
+				nextPercentage += 10;
 			}
 			if(stopWhenSolved) {
 				Double bestObj = muPopulation.get(0).getObjectives().get(0);

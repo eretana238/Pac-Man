@@ -22,6 +22,7 @@ public class CombinatorialCrossover extends CrossoverOperator<Variable<Integer>>
     protected double probability;
 
     public CombinatorialCrossover(double cxProb) {
+        super();
         this.probability = cxProb;
     }
     

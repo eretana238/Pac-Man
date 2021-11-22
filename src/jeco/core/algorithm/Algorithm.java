@@ -10,7 +10,7 @@ import jeco.core.util.observer.AlgObservable;
  * @author José L. Risco-Martín
  *
  */
-public abstract class Algorithm<V extends Variable<?>> extends AlgObservable {
+abstract class AbstractAlgorithm<V extends Variable<?>> extends AlgObservable {
 
   protected Problem<V> problem = null;
   // Attribute to stop execution of the algorithm.
@@ -28,7 +28,7 @@ public abstract class Algorithm<V extends Variable<?>> extends AlgObservable {
     return this.stop;
   }
 
-  public Algorithm(Problem<V> problem) {
+  public AbstractAlgorithm(Problem<V> problem) {
     this.problem = problem;
   }
 
