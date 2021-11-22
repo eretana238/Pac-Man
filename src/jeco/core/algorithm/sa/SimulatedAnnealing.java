@@ -39,7 +39,7 @@ public class SimulatedAnnealing<T extends Variable<?>> extends Algorithm<T> {
     private long startTime;
     private boolean change;
     private long numChanges = 0;
-    private final int LOG_RATIO = 1000;
+    private static int LOG_RATIO = 1000;
 
     /* Cost-related attributes */
     private double currentMinimumCost = Double.MAX_VALUE;
@@ -241,11 +241,7 @@ public class SimulatedAnnealing<T extends Variable<?>> extends Algorithm<T> {
         double prob = Math.exp(-energyDiff / temp);
 
         // nextDouble returns the next pseudorandom, uniformly distributed double value between 0.0 and 1.0
-        if (rnd.nextDouble() <= prob) {
-            return true;
-        } else {
-            return false;
-        }
+        return rnd.nextDouble() <= prob;
     }
 
     

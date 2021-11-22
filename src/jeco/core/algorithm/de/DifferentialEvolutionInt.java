@@ -219,11 +219,9 @@ public class DifferentialEvolutionInt extends Algorithm<Variable<Integer>> {
                 logger.info(percentage + "% performed ..." + " -- Best fitness: " + bestObj);
                 nextPercentageReport += 10;
             }
-            if(stopWhenSolved) {
-            	if(bestObj<=0) {
-            		logger.info("Optimal solution found in " + currentGeneration + " generations.");
-            		break;
-            	}
+            if(stopWhenSolved && bestObj<=0) {
+                logger.info("Optimal solution found in " + currentGeneration + " generations.");
+                break;
             }
         }
         return population;

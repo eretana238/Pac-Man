@@ -8,11 +8,11 @@ import jeco.core.problem.Variable;
 
 /**
  * This class implements a <code>Comparator</code> (a method for comparing
- * <code>Solution</code> objects) based on epsilon dominance.
+ * <code>Solution</code> objects) based on epsilon dominance.`
  */
 public class EpsilonDominanceComparator<V extends Variable<?>> implements Comparator<Solution<V>> {
 
-	private double eta;
+	private final double eta;
 
 	public EpsilonDominanceComparator(double eta) {
 		this.eta = eta;
